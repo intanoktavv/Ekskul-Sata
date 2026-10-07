@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Form Pendaftaran - X-Sata Ekskul</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- JS -->
+    <script src="script.js" defer></script>
+
+</head>
+
+
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen">
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="sticky top-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+        <div class="flex items-center justify-between h-16">
+
+            <a href="index.html"
+               class="flex items-center gap-3">
+
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white">
+
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+
+                </div>
+
+                <div>
+
+                    <span class="font-extrabold text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+
+                        X-Sata EKSKUL
+
+                    </span>
+
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400">
+                        SMK Negeri Tengaran
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <button id="themeToggleBtn"
+                    aria-label="Toggle Mode Gelap/Terang"
+                    class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+
+                <i id="themeIcon"
+                   class="fa-solid fa-moon">
+                </i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= FORM ================= -->
+
+<main class="py-10 sm:py-16">
+
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+
+        <!-- HEADER -->
+
+        <div class="text-center mb-8">
+
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 mb-4">
+
+                <i class="fa-solid fa-file-pen text-2xl"></i>
+
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+
+                Form Pendaftaran
+
+            </h1>
+
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+
+                Lengkapi data diri kamu untuk mendaftar ekstrakurikuler.
+
+            </p>
+
+        </div>
+
+
+        <!-- SELECTED EKSKUL -->
+
+        <div class="mb-6 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-2xl p-5">
+
+            <div class="flex items-center gap-4">
+
+                <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
+
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <div>
+
+                    <p class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+                        Ekstrakurikuler yang dipilih
+                    </p>
+
+                    <p id="selectedEkskulName"
+                       class="text-lg font-extrabold text-slate-900 dark:text-white">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM CARD -->
+
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl shadow-sm p-6 sm:p-8">
+
+            <form id="registrationForm">
+
+
+                <!-- NAMA -->
+
+                <div class="mb-5">
+
+                    <label for="fullName"
+                           class="block text-sm font-semibold mb-2">
+
+                        Nama Lengkap
+
+                    </label>
+
+                    <input type="text"
+                           id="fullName"
+                           placeholder="Masukkan nama lengkap"
+                           class="form-input">
+
+                    <p id="err-fullName"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="mb-5">
+
+                    <label for="email"
+                           class="block text-sm font-semibold mb-2">
+
+                        Email
+
+                    </label>
+
+                    <input type="email"
+                           id="email"
+                           placeholder="contoh@email.com"
+                           class="form-input">
+
+                    <p id="err-email"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="mb-5">
+
+                    <label for="password"
+                           class="block text-sm font-semibold mb-2">
+
+                        Password
+
+                    </label>
+
+                    <input type="password"
+                           id="password"
+                           placeholder="Minimal 8 karakter"
+                           class="form-input">
+
+                    <p id="err-password"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="mb-5">
+
+                    <label for="confirmPassword"
+                           class="block text-sm font-semibold mb-2">
+
+                        Konfirmasi Password
+
+                    </label>
+
+                    <input type="password"
+                           id="confirmPassword"
+                           placeholder="Ulangi password"
+                           class="form-input">
+
+                    <p id="err-confirmPassword"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- KELAS -->
+
+                <div class="mb-5">
+
+                    <label for="classOption"
+                           class="block text-sm font-semibold mb-2">
+
+                        Kelas & Jurusan
+
+                    </label>
+
+                    <select id="classOption"
+                            class="form-input">
+
+                        <option value="">
+                            Pilih kelas dan jurusan
+                        </option>
+
+                        <option value="X TJKT 1">
+                            X TKJ 
+                        </option>
+
+                        <option value="X TJKT 2">
+                            XI TKJ 
+                        </option>
+
+                        <option value="X DKV 1">
+                            XII  TKJ 
+                        </option>
+
+                        <option value="X DKV 2">
+                            X PPLG
+                        </option>
+
+                        <option value="X AKL 1">
+                            XI PPLG 
+                        </option>
+
+                        <option value="X AKL 2">
+                            XII PPLG
+                        </option>
+
+                        <option value="X MPLB 1">
+                            X TSM
+                        </option>
+
+                        <option value="X MPLB 2">
+                            XI TSM
+                        </option>
+                        <option value="X MPLB 2">
+                            XII TSM
+                        </option>
+                        <option value="X MPLB 2">
+                            X TKR
+                        </option>
+                        <option value="X MPLB 2">
+                            XI TKR
+                        </option>
+                        <option value="X MPLB 2">
+                            XII TKR
+                        </option>
+                        <option value="X MPLB 2">
+                            X Kuliner
+                        </option>
+                        <option value="X MPLB 2">
+                            XI Kulinet
+                        </option>
+                        <option value="X MPLB 2">
+                            XII Kuliner
+                        </option>
+                        <option value="X MPLB 2">
+                            X Busana
+                        </option>
+                        <option value="X MPLB 2">
+                            XI Busana
+                        </option>
+                        <option value="X MPLB 2">
+                            XII Busana
+                        </option>
+
+                    </select>
+
+                    <p id="err-classOption"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- WHATSAPP -->
+
+                <div class="mb-5">
+
+                    <label for="whatsapp"
+                           class="block text-sm font-semibold mb-2">
+
+                        Nomor WhatsApp
+
+                    </label>
+
+                    <div class="flex">
+
+                        <span class="flex items-center px-4 rounded-l-xl border border-r-0 border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-700 text-sm">
+
+                            +62
+
+                        </span>
+
+                        <input type="text"
+                               id="whatsapp"
+                               placeholder="81234567890"
+                               class="form-input rounded-l-none">
+
+                    </div>
+
+                    <p id="err-whatsapp"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- ALASAN -->
+
+                <div class="mb-6">
+
+                    <label for="reason"
+                           class="block text-sm font-semibold mb-2">
+
+                        Alasan Bergabung
+
+                    </label>
+
+                    <textarea id="reason"
+                              rows="4"
+                              placeholder="Tuliskan alasan kamu ingin bergabung..."
+                              class="form-input resize-none"></textarea>
+
+                    <p id="err-reason"
+                       class="form-error hidden">
+                    </p>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <div class="flex flex-col sm:flex-row gap-3">
+
+                    <button type="button"
+                            onclick="goToPage1()"
+                            class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-600 font-semibold hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+
+                        Kembali
+
+                    </button>
+
+
+                    <button type="submit"
+                            class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/20 transition">
+
+                        Daftar Sekarang
+
+                        <i class="fa-solid fa-paper-plane ml-2"></i>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= SUCCESS MODAL ================= -->
+
+<div id="successModal"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+
+    <div id="modalBox"
+         class="bg-white dark:bg-slate-800 rounded-3xl p-7 max-w-sm w-full text-center shadow-2xl">
+
+        <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">
+            Pendaftaran Berhasil!
+        </h3>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 mb-6">
+
+            Data pendaftaran kamu telah berhasil dikirimkan.
+            Panitia akan segera menghubungi kamu melalui WhatsApp.
+
+        </p>
+
+        <button id="closeModalBtn"
+                class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl">
+
+            Tutup
+
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
